@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tamir Hen</title>
+        
+        <meta name="viewport" content="width=device-width,
+        initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="default.css">
+        <script type="text/javascript" src="jquery-3.5.1.js"></script>
+
+
+    </head>
+    <body>
+        <section class="s1">
+            <div class="main-container">
+                <div class="greeting-wrapper">
+                    <h1>Tamir Hen's Portfolio</h1>
+                </div>
+                <div class="terminal-wrapper">
+                    <div class="terminal">
+                        <div class="terminal-header">
+                            <div class="dots-wrapper">
+                                <div id="red-dot" class="header-dots"></div>
+                                <div id="yellow-dot" class="header-dots"></div>
+                                <div id="green-dot" class="header-dots"></div>
+                            </div>
+                        </div>
+    
+                        <div id="terminal-body" class="terminal-body">
+                            
+                            <div id="terminal-text">
+
+                                <span id="default-terminal-text">
+                                    Tamirs-MBP:portfolioWebsite tamirhen$
+                                </span>
+                                <span class="terminal-input-wrapper">
+                                    <span id="terminal-input" class="terminal-input" contenteditable="true" spellcheck="false"></span>
+                                    <span class="cursor-wrapper">
+                                        <span id="cursor" class="cursor outline-cursor">&nbsp;</span>
+                                    </span>
+                                </span>
+                                
+                            </div>
+
+                            <div class="scroll-bar-wrapper">
+                                <div class="new-tab-button">
+                                    <div class="icon-body">
+                                        <div class="icon-inside">
+                                            <div class="inside-line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="scroll-bar"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="about-wrapper">
+                    About
+                    <div class="about-sections">
+                        <div class="first-about-section">
+                            Recent Computer Science graduate from the Holon Institute of Technology including a semester abroad as part of a student exchange program. GPA: 85.<br>
+                            2 years’ experience with implementing and maintaining assurance tests in a C# .NET server-side environment as a QA engineer.<br>
+                            A self-taught computer “geek” with a great passion for computers and cutting-edge technology.
+                        </div>
+
+                        <div class="second-about-section">
+                            Tel Aviv<br>
+                            Tamirhen6@gmail.com<br>
+                            +972(0)54-959-9912<br>
+                            14/09/1993
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="s2">
+            <div class="main-container">
+                <span id="portfolio-text">Portfolio</span>
+                <div class="portfolio-wrapper">
+                    <div class=first-project-wrapper>
+                        <div class="project-title">
+                            <a href="#">CookCycle</a>
+                        </div>
+
+                        <div class="project-body">
+
+                        </div>
+            
+                    </div>   
+
+                    <div class="second-project-wrapper">
+                        <div class="project-title">
+                            <a href="#">Cinema Management System</a>
+                        </div>
+
+                        <div class="project-body">
+                            
+                        </div>
+            
+                    </div>
+
+
+                    <div class="third-project-wrapper">
+                        <div class="project-title">
+                            <a href="#">Smart Home-Irrigation-System</a>
+                        </div>
+
+                        <div class="project-body">
+                            
+                        </div>
+            
+                    </div>
+
+
+                    <div class="fourth-project-wrapper">
+                        <div class="project-title">
+                            <a href="#">Compiler project</a>
+                        </div>
+
+                        <div class="project-body">
+                            
+                        </div>
+            
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="s1">
+            <div class="main-container">
+                Contact
+            </div>
+        </section>
+
+        <script type="text/javascript" src="app.js"></script>
+
+        <script>
+            $('#terminal-text').keypress(function(event) {
+                if(event.keyCode == 13) {
+                    event.preventDefault();
+                    let input = $('.terminal-input:last')[0].textContent;
+                    console.log('Enter pressed');
+                    $('#terminal-text #cursor:last').remove();
+                    $('#terminal-text').append('<br><span class="default-terminal-text">Tamirs-MBP:portfolioWebsite tamirhen$</span><span class="terminal-input-wrapper"><span id="terminal-input" class="terminal-input" contenteditable="true" spellcheck="false"></span><span class="cursor-wrapper"><span id="cursor" class="cursor blink">&nbsp;</span></span></span>');
+                    $('.terminal-input:last').focus();
+                    
+                    if(input === 'about'){
+                        $('.about-wrapper')[0].scrollIntoView({behavior: "smooth"});
+                    }
+                    if(input === 'portfolio'){
+                        $('#portfolio-text')[0].scrollIntoView({behavior: "smooth"});
+                    }
+                }
+            });
+
+            $('#terminal-body').click (function() {
+                let input = $('.terminal-input:last')[0];
+                // let value = contenteditable = document.querySelector('[terminal-input]'),
+                input.focus();
+                placeCaretAtEnd(input);
+                let cursor = document.querySelector(".cursor");
+                cursor.classList.add("blink");
+                cursor.classList.remove("outline-cursor");
+
+                let header = document.querySelector(".terminal-header");
+                header.classList.add("terminal-header-focused"); 
+            });
+
+            
+        </script>
+
+    </body>
+</html>
