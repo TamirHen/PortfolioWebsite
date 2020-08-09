@@ -339,7 +339,8 @@ p, li, span, label, input, textarea{
 
 .second-project-wrapper{
     grid-area: second-project-wrapper;
-    background-color: #e8ebe8c2;
+    background-color: #212121;
+    border: 1px solid #6eb8ca;
     margin: 12px;
     border-radius: 13px;
 
@@ -351,7 +352,6 @@ p, li, span, label, input, textarea{
 .third-project-wrapper{
     grid-area: third-project-wrapper;
     border: 1px solid #6eb8ca;
-    background-color: #FFFFFF;
     margin: 12px;
     border-radius: 13px;
 
@@ -383,21 +383,13 @@ p, li, span, label, input, textarea{
 }
 
 .project-image{
-    margin-top: 10px;
     max-width: 100%;
     max-height: 100%;
 }
 
 .cinema-image{
-    margin-top: 11px;
-    width: 94%;
-    height: 100%;
-}
-
-.compiler-image{
-    margin-top: 6px;
-    width: 90%;
+    margin-top: 5px;
+    width: 92%;
     height: 100%;
 
 }
-
