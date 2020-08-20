@@ -10,6 +10,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" type="text/css" href="default.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <script type="text/javascript" src="jquery-3.5.1.js"></script>
 
     </head>
@@ -34,7 +36,7 @@
                             <div id="terminal-text">
 
                                 <span id="first-default-terminal-text">
-                                    Tamirs-MBP:portfolioWebsite tamirhen$
+                                    Tamirs-MBP:portfolio tamirhen$
                                 </span>
                                 <span class="terminal-input-wrapper">
                                     <span id="terminal-input" class="terminal-input" contenteditable="true" spellcheck="false"></span>
@@ -69,7 +71,7 @@
                             A self-taught computer “geek” with a great passion for computers and cutting-edge technology.
                         </div>
 
-                        <div class="second-about-section">
+                        <div class="second-about-section" >
                             Tel Aviv<br>
                             Tamirhen6@gmail.com<br>
                             +972(0)54-959-9912<br>
@@ -92,7 +94,9 @@
                         </div>
 
                         <div class="project-body">
+                            <a href="#">
                             <img src="./images/CookCycle_photo.png" alt="CookCycle" class="project-image">
+                            </a>
                         </div>
             
                     </div>   
@@ -103,7 +107,9 @@
                         </div>
 
                         <div class="project-body">
+                            <a href="#">
                             <img src="./images/HomeIrrigationSystem_photo.png" alt="Smart Home-Irrigation-System" class="project-image">
+                            </a>
                         </div>
             
                     </div>
@@ -114,7 +120,9 @@
                         </div>
 
                         <div class="project-body">
-                            <img src="./images/CinemaManagementSystem_photo.png" alt="Cinema Management System" class="cinema-image">
+                            <a href="#">
+                                <img src="./images/CinemaManagementSystem_photo.png" alt="Cinema Management System" class="project-image">
+                            </a>
                         </div>
             
                     </div>
@@ -126,7 +134,9 @@
                         </div>
 
                         <div class="project-body">
-                            <img src="./images/Compiler_photo.png" alt="Compiler" class="compiler-image">
+                            <a href="#">
+                            <img src="./images/Compiler_photo.png" alt="Compiler" class="project-image">
+                            </a>
                         </div>
             
                     </div>
@@ -135,9 +145,19 @@
             </div>
         </section>
 
-        <section class="s1">
+        <section class="s3">
             <div class="main-container">
-                <div id="contact-text" class="section-header">Contact</div>
+                Find Me
+                <div class="social-menu">
+
+                    <!-- <ul>
+                        <li id="email"><a href=""></a></li>
+                        <li id="facebook"><a href=""></a><img src="./images/facebook_icon.png" alt="Facebook"></li>
+                        <li id="linkedin"><a href=""></a></li>
+                        <li id="whatsapp"><a href=""></a></li>
+                    </ul> -->
+
+                </div>
             </div>
         </section>
 
@@ -150,32 +170,62 @@
                     event.preventDefault();
                     let input = $('.terminal-input:last')[0].textContent;
 
-
                     $('#terminal-text #cursor:last').remove();
-                    $('#terminal-text').append('<br><span class="default-terminal-text">Tamirs-MBP:portfolioWebsite tamirhen$</span><span class="terminal-input-wrapper"><span id="terminal-input" class="terminal-input" contenteditable="true" spellcheck="false"></span><span class="cursor-wrapper"><span id="cursor" class="cursor blink">&nbsp;</span></span></span>');
+                    $('#terminal-text').append('<br><span class="default-terminal-text">Tamirs-MBP:portfolio tamirhen$</span><span class="terminal-input-wrapper"><span id="terminal-input" class="terminal-input" contenteditable="true" spellcheck="false"></span><span class="cursor-wrapper"><span id="cursor" class="cursor blink">&nbsp;</span></span></span>');
                     $('.terminal-input:last').focus();
+
+                    switch(input) {
+                        case '':
+                            // do nothing
+                            break;  
+                        case 'about':
+                            var elementPosition = $('.about-wrapper').position().top;
+                            var offsetPosition = elementPosition - 35;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: "smooth"
+                            });
+                            break;
+                        case 'portfolio':
+                            $('.s2')[0].scrollIntoView({behavior: "smooth"});
+                            break;
+                        case 'find me':
+                            $('.s3')[0].scrollIntoView({behavior: "smooth"});
+                            break;
+                        case 'confetti':
+                            confetti({
+                                particleCount: 400,
+                                spread: 180
+                            });
+                            break;
+                        default:
+                            $('.default-terminal-text:last').before(`<div class="terminal-text">-bash: ${input}: command not found</div>`);
+                        
+                    }
+
                     
-                    if(input === 'about'){
-                        $('.about-wrapper')[0].scrollIntoView({behavior: "smooth"});
-                    }
-                    else if(input === 'portfolio'){
-                        $('#portfolio-text')[0].scrollIntoView({behavior: "smooth"});
-                    }
-                    else if(input === 'contact'){
-                        $('#contact-text')[0].scrollIntoView({behavior: "smooth"});
-                    }
-                    else if(input === 'confetti') {
-                        confetti({
-                            particleCount: 400,
-                            spread: 180
-                        });
-                    }
-                    else if(input === '') {
-                        // do nothing
-                    }
-                    else{
-                        $('.default-terminal-text:last').before(`<div class="terminal-text">-bash: ${input}: command not found</div>`);
-                    }
+                    // if(input === 'about'){
+                    //     $('.about-wrapper')[0].scrollIntoView({behavior: "smooth"});
+                    // }
+                    // else if(input === 'portfolio'){
+                    //     $('#portfolio-text')[0].scrollIntoView({behavior: "smooth"});
+                    // }
+                    // else if(input === 'find me'){
+                    //     $('#find me-text')[0].scrollIntoView({behavior: "smooth"});
+                    // }
+                    // else if(input === 'confetti') {
+                    //     confetti({
+                    //         particleCount: 400,
+                    //         spread: 180
+                    //     });
+                    // }
+                    // else if(input === '') {
+                    //     // do nothing
+                    // }
+                    // else{
+                    //     $('.default-terminal-text:last').before(`<div class="terminal-text">-bash: ${input}: command not found</div>`);
+                    // }
                 }
             });
 
