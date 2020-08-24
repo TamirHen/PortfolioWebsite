@@ -7,12 +7,13 @@
 // }
 
 // function onLoad(){
-//     var i=0, text;
-//     text =  "Tamirs-MBP:portfolioWebsite tamirhen$";
-//     typingAnimation();
+//     // var i=0, text;
+//     // text =  "Tamirs-MBP:portfolioWebsite tamirhen$";
+//     // typingAnimation();
+//     typeWriter("text-animation", "Hi! I am a functional terminal. Write \"functions\" to see what I can do and use me to navigate the website.", 50);
 // }
 
-// document.onload = onLoad();
+// document.onload = typeWriter();
 
 // const typedTextSpan = document.querySelector(".typed-text");
 // const cursorSpan = document.querySelector(".cursor");
@@ -50,6 +51,14 @@
 //     let header = document.querySelector(".terminal-header");
 //     header.classList.add("terminal-header-focused");    
 // }
+// async function typeWriter() {
+//     let txt = "Hi! I am a functional terminal. Write \"functions\" to see what I can do and use me to navigate the website."
+//     for (i=0; i< txt.length; i++) {
+//       document.getElementById("text-animation").innerHTML += txt.charAt(i);
+//       await sleep(100);
+//     }
+//   }
+
 
 function placeCaretAtEnd(el) {
     el.focus();
@@ -127,3 +136,6 @@ document.getElementsByClassName('terminal-text').onkeydown = function(e) {
     }
 }
 
+document.getElementById("terminal-body").addEventListener("overflow", function(event){
+    console.log(event);
+}, false);
